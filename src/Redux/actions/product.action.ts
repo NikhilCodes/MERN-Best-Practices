@@ -16,7 +16,7 @@ export const getAllProduct = () => async (dispatch: Dispatch) => {
   } catch (error) {
     dispatch({
       type: ProductTypes.GET_PRODUCTS_ERROR,
-      errorMsg: 'GetProductError'
+      errorMsg: `GetProductError: ${error}`
     });
   }
 }

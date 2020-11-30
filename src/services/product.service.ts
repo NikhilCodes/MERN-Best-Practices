@@ -7,9 +7,11 @@ class ProductService {
     this.protectedApiService = Container.get(MainApiProtected);
   }
 
-  getAllProducts = (): Promise<any> => {
+  getAllProducts = async (): Promise<any> => {
     try {
-      return this.getAllProducts();
+      console.log('LIKE')
+      console.log(await this.protectedApiService.getAllProducts())
+      return await this.protectedApiService.getAllProducts();
     } catch (error) {
       throw error;
     }

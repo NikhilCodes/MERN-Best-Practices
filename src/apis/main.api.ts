@@ -1,5 +1,5 @@
 import HttpClient from './base.api';
-import { SERVER_URL } from '../../globals';
+import { SERVER_URL } from '../globals';
 
 class MainApi extends HttpClient {
   constructor() {

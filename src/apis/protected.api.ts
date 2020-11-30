@@ -1,5 +1,5 @@
 import HttpClient from './base.api';
-import { getUserToken, SERVER_URL } from '../../globals';
+import { getUserToken, SERVER_URL } from '../globals';
 import { AxiosRequestConfig } from 'axios';
 import routes from './routes';
 
@@ -23,8 +23,8 @@ class MainApiProtected extends HttpClient {
     return config;
   }
 
-  getAllProducts = () => {
-    return this.instance.get(
+  getAllProducts = async () => {
+    return await this.instance.get(
       `${routes.PRODUCT}`
     );
   }

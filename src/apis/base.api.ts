@@ -19,7 +19,7 @@ class HttpClient {
     );
   }
 
-  _handleResponse = (data: any) => data;
+  _handleResponse = (data: any) => data.data;
 
   _handleError = (error: string) => Promise.reject(error);
 }
