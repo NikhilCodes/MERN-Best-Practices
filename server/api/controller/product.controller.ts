@@ -3,6 +3,7 @@ import { Container, Inject, Service } from 'typedi';
 import ProductService from '../services/product.service';
 import { Request, Response, NextFunction } from 'express';
 import { IProductDTO } from '../interfaces/IProduct';
+import HttpException from '../exceptions/http.exception';
 
 @Service('product.controller')
 class ProductController {
@@ -15,7 +16,7 @@ class ProductController {
       response.status(200).send(productsData);
     } catch (error) {
       console.log(error);
-      // next(new HttpException(error));
+      next(new HttpException(error));
     }
   }
 
