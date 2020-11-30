@@ -3,15 +3,14 @@ import { MainApiProtected } from '../apis';
 
 class ProductService {
   protectedApiService: MainApiProtected;
+
   constructor() {
     this.protectedApiService = Container.get(MainApiProtected);
   }
 
-  getAllProducts = async (): Promise<any> => {
+  getAllProducts = (): Promise<any> => {
     try {
-      console.log('LIKE')
-      console.log(await this.protectedApiService.getAllProducts())
-      return await this.protectedApiService.getAllProducts();
+      return this.protectedApiService.getAllProducts();
     } catch (error) {
       throw error;
     }
