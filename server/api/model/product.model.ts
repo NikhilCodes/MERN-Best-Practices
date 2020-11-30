@@ -1,11 +1,8 @@
 import { getModelForClass, getName, prop, Ref } from '@typegoose/typegoose';
 import { Types } from 'mongoose';
 
-export class ProductToken {
-  @prop({ required: true, unique: true })
-  public _id!: Types.ObjectId;
-
-  @prop({required: true})
+export class Product {
+  @prop()
   public name!: string;
 
   @prop({required: true})
@@ -15,4 +12,4 @@ export class ProductToken {
   public imageUrl!: string;
 }
 
-export const ProductModel = getModelForClass(ProductToken);
+export const ProductModel = getModelForClass(Product);
