@@ -4,4 +4,10 @@
   border: 1px solid black;
   margin: 30px;
   border-radius: 10px;
+  overflow: hidden;
+}
+
+.product-tile img {
+  width: 100%;
+  object-fit: contain;
 }

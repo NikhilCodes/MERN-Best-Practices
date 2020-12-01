@@ -9,8 +9,8 @@ interface ProductTilePropType {
 export default function ProductTile({ title, imageUrl }: ProductTilePropType) {
   return (
     <div className={'product-tile'}>
-      <img src={imageUrl} />
-      <div>
+      <img src={imageUrl} alt={'product'} />
+      <div style={{ margin: 20 }}>
         {title}
       </div>
     </div>
