@@ -1,7 +1,7 @@
 import { ProductTypes } from '../types';
-import { IProduct, IReduxAction } from '../../interfaces';
+import { IProductStore, IReduxAction } from '../../interfaces';
 
-const initialState: IProduct = {
+const initialState: IProductStore = {
   isLoading: false,
   data: [],
   hasError: false,

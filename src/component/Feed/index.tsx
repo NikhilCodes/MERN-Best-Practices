@@ -4,35 +4,37 @@ import { connect } from 'react-redux';
 import './styles.css';
 import ProductTile from '../../widgets/ProductTile';
 import { ProductActions } from '../../Redux/actions';
-import { IReduxState } from '../../interfaces';
+import { IReduxState, IProductStore, IProduct } from '../../interfaces';
 
 // Prop Types for current file components are given below
-interface FeedProps {
+interface FeedPropType {
   getAllProducts: () => void;
-  product: any;
+  products: IProductStore;
 }
+
 //
 
-function Feed({ getAllProducts, product }: FeedProps) {
+function Feed({ getAllProducts, products }: FeedPropType) {
   useEffect(() => {
     getAllProducts()
   }, [getAllProducts]);
 
   return (
     <div className={'feed'}>
-      <ProductTile />
-      <ProductTile />
-      <ProductTile />
-      <ProductTile />
-      <ProductTile />
-      <ProductTile />
-      <ProductTile />
+      {products.data.map(
+        (value: IProduct, index: number) =>
+          <ProductTile
+            key={index}
+            imageUrl={value.imageUrl}
+            title={value.name}
+          />
+      )}
     </div>
   );
 }
 
 const mapStateToProps = (state: IReduxState) => ({
-  product: state.product,
+  products: state.products,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(
@@ -40,4 +42,5 @@ const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(
   dispatch
 );
 
+// @ts-ignore
 export default connect(mapStateToProps, mapDispatchToProps)(Feed);

@@ -1,3 +1,3 @@
 export default interface IReduxState {
-  product?: object
+  products?: object
 }
